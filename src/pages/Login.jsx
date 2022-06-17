@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
@@ -7,7 +6,6 @@ const USER_EMAIL = 'tjddufgk@gmail.com';
 const USER_PASSWORD = 'Wanted123!';
 
 const Login = () => {
-  const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -70,7 +68,7 @@ const Login = () => {
 
   return (
     <Container>
-      <BoxWrap>
+      <Wrapper>
         <Box>
           <Logo>
             <img src={logo} alt="로고" />
@@ -102,7 +100,7 @@ const Login = () => {
             </button>
           </Form>
         </Box>
-      </BoxWrap>
+      </Wrapper>
     </Container>
   );
 };
@@ -117,7 +115,7 @@ const Container = styled.main`
   align-items: center;
 `;
 
-const BoxWrap = styled.div`
+const Wrapper = styled.div`
   width: 400px;
   background: white;
   border: 1px solid #dbdbdb;
