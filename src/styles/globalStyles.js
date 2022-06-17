@@ -3,6 +3,9 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
  ${reset}
+ input {
+   width:100%;
+ }
  * {
    box-sizing:border-box;
    outline:none;
