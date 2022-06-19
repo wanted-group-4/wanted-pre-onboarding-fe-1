@@ -41,6 +41,7 @@ export default Home;
 
 const Container = styled.section`
   width: 100vw;
+  min-height: 100vh;
   padding: 100px 0;
   background: #fafafa;
 `;

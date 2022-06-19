@@ -13,13 +13,18 @@ const Feed = ({ feedObj }) => {
   const { image, author, comments, description } = feedObj;
 
   const [commentList, setCommentList] = useState(comments);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleAddComment = (newComment) => {
     setCommentList((prev) => [...prev, newComment]);
   };
 
+  const handleImageLoaded = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <Container>
+    <Container isLoading={isLoading}>
       <Wrapper>
         <HeaderWrap>
           <Header>
@@ -30,7 +35,7 @@ const Feed = ({ feedObj }) => {
           </DotButton>
         </HeaderWrap>
         <ImageWrap>
-          <img src={image} alt="피드 사진" />
+          <img src={image} onLoad={handleImageLoaded} alt="피드 사진" />
         </ImageWrap>
         <ContentWrap>
           <FeedIConWrap>
@@ -59,6 +64,7 @@ const Feed = ({ feedObj }) => {
 export default Feed;
 
 const Container = styled.div`
+  display: ${(props) => (props.isLoading ? 'none' : 'block')};
   width: 100%;
   background: white;
 `;
