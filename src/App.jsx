@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Layout from './components/Layouts/Layout';
 import Router from './Router';
 
 function App() {
@@ -13,7 +14,13 @@ function App() {
     setInit(true);
   }, []);
 
-  return init && <Router isLoggedIn={isLoggedIn} />;
+  return (
+    init && (
+      <Layout isLoggedIn={isLoggedIn}>
+        <Router isLoggedIn={isLoggedIn} />
+      </Layout>
+    )
+  );
 }
 
 export default App;

@@ -1,19 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navigation from '../components/Navigation';
 
 const Home = () => {
-  return (
-    <>
-      <Navigation />
-      <Container></Container>
-    </>
-  );
+  return <Container></Container>;
 };
 
 export default Home;
 
-const Container = styled.main`
-  padding-top: 60px;
+const Container = styled.section`
+  display: flex;
+  padding: 100px 0;
   background: #fafafa;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 `;

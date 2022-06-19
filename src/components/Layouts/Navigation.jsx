@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 import { AiOutlineHeart, AiOutlinePlusSquare } from 'react-icons/ai';
 import { FiSend } from 'react-icons/fi';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
