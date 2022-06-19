@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/Login';
+import Router from './Router';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -15,21 +13,7 @@ function App() {
     setInit(true);
   }, []);
 
-  return (
-    init && (
-      <Routes>
-        <Route
-          path="/"
-          element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/login"
-          element={!isLoggedIn ? <Login /> : <Navigate to="/" />}
-        />
-        <Route path="*" element={<Navigate replace to="/" />} />
-      </Routes>
-    )
-  );
+  return init && <Router isLoggedIn={isLoggedIn} />;
 }
 
 export default App;
