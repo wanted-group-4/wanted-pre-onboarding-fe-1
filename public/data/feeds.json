@@ -1,0 +1,29 @@
+{
+  "feeds": [
+    {
+      "id": 1,
+      "author": "React",
+      "image": "https://images.unsplash.com/photo-1654468087459-f14e3bc57d35?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NTQ2NDAzNg&ixlib=rb-1.2.1&q=80&w=600",
+      "comments": [
+        { "id": 0, "author": "NextJs", "content": "사진이 좋네요~~" }
+      ],
+      "description": "Feed 1"
+    },
+    {
+      "id": 2,
+      "author": "NextJs",
+      "image": "https://images.unsplash.com/photo-1653496630720-f63052bb038d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NTQ2NDE1MA&ixlib=rb-1.2.1&q=80&w=900",
+      "comments": [{ "id": 0, "author": "React", "content": "안녕하세요!!" }],
+      "description": "Feed 2"
+    },
+    {
+      "id": 3,
+      "author": "TypeScript",
+      "image": "https://images.unsplash.com/photo-1654255455918-e3b81d74ddf5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NTQ2NDE3NA&ixlib=rb-1.2.1&q=80&w=700",
+      "comments": [
+        { "id": 0, "author": "Javascript", "content": "반가워요!!" }
+      ],
+      "description": "Feed 3"
+    }
+  ]
+}
