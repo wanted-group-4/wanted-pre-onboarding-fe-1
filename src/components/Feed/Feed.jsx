@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import FeedAddCommentBar from './FeedAddCommentBar';
+import FeedComments from './FeedComments';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { FiSend } from 'react-icons/fi';
 import { FaRegCommentDots } from 'react-icons/fa';
 import { BiBookmark } from 'react-icons/bi';
-
 import FeedAuthor from './FeedAuthor';
 
 const Feed = ({ feedObj }) => {
   const { image, author, comments, description } = feedObj;
+
+  const [commentList, setCommentList] = useState(comments);
+
+  const handleAddComment = (newComment) => {
+    setCommentList((prev) => [...prev, newComment]);
+  };
 
   return (
     <Container>
@@ -39,7 +46,11 @@ const Feed = ({ feedObj }) => {
           <DescriptionWrap>
             <FeedAuthor author={author} content={description} />
           </DescriptionWrap>
+          {commentList && commentList.length > 0 && (
+            <FeedComments comments={commentList} />
+          )}
         </ContentWrap>
+        <FeedAddCommentBar handleAddComment={handleAddComment} />
       </Wrapper>
     </Container>
   );

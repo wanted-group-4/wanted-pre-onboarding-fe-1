@@ -13,7 +13,10 @@
       "id": 2,
       "author": "NextJs",
       "image": "https://images.unsplash.com/photo-1653496630720-f63052bb038d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NTQ2NDE1MA&ixlib=rb-1.2.1&q=80&w=900",
-      "comments": [{ "id": 0, "author": "React", "content": "안녕하세요!!" }],
+      "comments": [
+        { "id": 0, "author": "React", "content": "안녕하세요!!" },
+        { "id": 0, "author": "Javascript", "content": "맞팔해요~~" }
+      ],
       "description": "Feed 2"
     },
     {
