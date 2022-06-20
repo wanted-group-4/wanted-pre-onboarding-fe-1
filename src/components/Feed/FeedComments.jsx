@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+
 import FeedAuthor from './FeedAuthor';
+import FeedAddCommentBar from './FeedAddCommentBar';
 
 const FeedComments = ({ comments }) => {
+  const [commentList, setCommentList] = useState(comments);
+
+  const handleAddComment = (newComment) => {
+    setCommentList((prev) => [...prev, newComment]);
+  };
+
   return (
     <Container>
       <Wrapper>
-        {comments.map((comment) => (
-          <CommentWrap key={comment.id}>
-            <FeedAuthor author={comment.author} content={comment.content} />
-          </CommentWrap>
-        ))}
+        <CommentWrap>
+          {commentList.map((comment) => (
+            <FeedAuthor
+              key={comment.id}
+              author={comment.author}
+              content={comment.content}
+            />
+          ))}
+        </CommentWrap>
+        <FeedAddCommentBar handleAddComment={handleAddComment} />
       </Wrapper>
     </Container>
   );
@@ -20,28 +33,20 @@ export default FeedComments;
 
 const Container = styled.article`
   width: 100%;
-  margin-bottom: 15px;
 `;
 
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px 0;
+  align-items: center;
 `;
 const CommentWrap = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-`;
-
-const Author = styled.div`
-  & span {
-    font-size: 16px;
-    font-weight: 600;
-  }
-`;
-
-const Content = styled.span`
-  margin-left: 15px;
+  padding: 0 15px;
+  gap: 5px 0;
+  margin-bottom: 10px;
 `;

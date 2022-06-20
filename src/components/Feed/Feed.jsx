@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import FeedAddCommentBar from './FeedAddCommentBar';
 import FeedComments from './FeedComments';
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -12,12 +11,7 @@ import FeedAuthor from './FeedAuthor';
 const Feed = ({ feedObj }) => {
   const { image, author, comments, description } = feedObj;
 
-  const [commentList, setCommentList] = useState(comments);
   const [isLoading, setIsLoading] = useState(true);
-
-  const handleAddComment = (newComment) => {
-    setCommentList((prev) => [...prev, newComment]);
-  };
 
   const handleImageLoaded = () => {
     setIsLoading(false);
@@ -51,11 +45,10 @@ const Feed = ({ feedObj }) => {
           <DescriptionWrap>
             <FeedAuthor author={author} content={description} />
           </DescriptionWrap>
-          {commentList && commentList.length > 0 && (
-            <FeedComments comments={commentList} />
+          {comments && comments.length > 0 && (
+            <FeedComments comments={comments} />
           )}
         </ContentWrap>
-        <FeedAddCommentBar handleAddComment={handleAddComment} />
       </Wrapper>
     </Container>
   );
@@ -111,12 +104,13 @@ const ImageWrap = styled.div`
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 15px;
+  align-items: center;
 `;
 
 const FeedIConWrap = styled.div`
   width: 100%;
   display: flex;
+  padding: 0 15px;
   justify-content: space-between;
   margin-bottom: 20px;
 `;
@@ -139,4 +133,5 @@ const DescriptionWrap = styled.div`
   display: flex;
   justify-content: flex-start;
   margin-bottom: 20px;
+  padding: 0 15px;
 `;

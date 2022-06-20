@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import uuid from 'react-uuid';
 import { BsEmojiSmile } from 'react-icons/bs';
 
-const CommentInput = ({ handleAddComment }) => {
+const FeedAddCommentBar = ({ handleAddComment }) => {
   const inputRef = useRef();
 
   const onKeyPress = (e) => {
@@ -44,7 +44,7 @@ const CommentInput = ({ handleAddComment }) => {
   );
 };
 
-export default CommentInput;
+export default FeedAddCommentBar;
 
 const Container = styled.section`
   width: 100%;
