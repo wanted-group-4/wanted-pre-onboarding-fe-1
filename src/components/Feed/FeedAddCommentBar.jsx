@@ -44,7 +44,7 @@ const FeedAddCommentBar = ({ handleAddComment }) => {
   );
 };
 
-export default FeedAddCommentBar;
+export default React.memo(FeedAddCommentBar);
 
 const Container = styled.section`
   width: 100%;

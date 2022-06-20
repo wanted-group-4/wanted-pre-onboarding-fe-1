@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 import FeedAuthor from './FeedAuthor';
@@ -7,9 +7,9 @@ import FeedAddCommentBar from './FeedAddCommentBar';
 const FeedComments = ({ comments }) => {
   const [commentList, setCommentList] = useState(comments);
 
-  const handleAddComment = (newComment) => {
+  const handleAddComment = useCallback((newComment) => {
     setCommentList((prev) => [...prev, newComment]);
-  };
+  }, []);
 
   return (
     <Container>
@@ -29,7 +29,7 @@ const FeedComments = ({ comments }) => {
   );
 };
 
-export default FeedComments;
+export default React.memo(FeedComments);
 
 const Container = styled.article`
   width: 100%;

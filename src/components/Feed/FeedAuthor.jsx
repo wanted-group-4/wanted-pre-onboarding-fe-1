@@ -23,7 +23,7 @@ const FeedAuthor = ({ avatar, author, content }) => {
   );
 };
 
-export default FeedAuthor;
+export default React.memo(FeedAuthor);
 
 const Container = styled.div`
   width: 100%;
