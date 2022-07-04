@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
+import { isValidRegExp } from '../common/regexp';
+
 const USER_EMAIL = 'tjddufgk@gmail.com';
 const USER_PASSWORD = 'Wanted123!';
 
@@ -14,44 +16,26 @@ const Login = () => {
 
   const onChange = (e) => {
     const {
-      target: { value, id },
+      target: { id, value },
     } = e;
 
     if (id === 'email') {
-      validateEamil(value);
+      validateEmail(id, value);
     }
 
     if (id === 'password') {
-      validatePassword(value);
+      validatePassword(id, value);
     }
   };
 
-  const validateEamil = (value) => {
-    const regex =
-      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-
-    if (regex.test(value)) {
-      setIsValidEmail(true);
-      return;
-    }
-
-    if (isValidEmail) {
-      setIsValidEmail(false);
-    }
+  const validateEmail = (id, value) => {
+    if (isValidEmail === isValidRegExp(id, value)) return;
+    setIsValidEmail(isValidRegExp(id, value));
   };
 
-  const validatePassword = (value) => {
-    const regex =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-
-    if (regex.test(value)) {
-      setIsValidPassword(true);
-      return;
-    }
-
-    if (isValidPassword) {
-      setIsValidPassword(false);
-    }
+  const validatePassword = (id, value) => {
+    if (isValidPassword === isValidRegExp(id, value)) return;
+    setIsValidPassword(isValidRegExp(id, value));
   };
 
   const onSubmit = () => {
