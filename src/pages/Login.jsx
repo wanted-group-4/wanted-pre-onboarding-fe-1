@@ -41,13 +41,26 @@ const Login = () => {
     setIsValidPassword(isValidRegExp(id, value));
   };
 
+  const checkEmail = (email) => {
+    if (email === USER_EMAIL) return true;
+
+    alert('이메일을 다시 확인해주세요');
+    return false;
+  };
+
+  const checkPassword = (password) => {
+    if (password === USER_PASSWORD) return true;
+
+    alert('비밀번호를 다시 확인해주세요');
+    return false;
+  };
+
   const onSubmit = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    if (email !== USER_EMAIL) return alert('이메일을 다시 확인해주세요');
 
-    if (password !== USER_PASSWORD)
-      return alert('비밀번호를 다시 확인해주세요');
+    if (!checkEmail(email)) return;
+    if (!checkPassword(password)) return;
 
     handleLogIn(email, password);
   };
