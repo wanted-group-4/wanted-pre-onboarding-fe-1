@@ -52,7 +52,7 @@ const Wrapper = styled.div`
 `;
 
 const FeedsWrap = styled.div`
-  @media (max-width: 500px) {
+  @media ${({ theme }) => theme.device.max.mobile} {
     width: 100%;
   }
   gap: 20px 0;

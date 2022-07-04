@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Layout from './components/Layouts/Layout';
 import Router from './Router';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/theme';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -16,9 +18,11 @@ function App() {
 
   return (
     init && (
-      <Layout isLoggedIn={isLoggedIn}>
-        <Router isLoggedIn={isLoggedIn} />
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <Layout isLoggedIn={isLoggedIn}>
+          <Router isLoggedIn={isLoggedIn} />
+        </Layout>
+      </ThemeProvider>
     )
   );
 }

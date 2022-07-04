@@ -58,9 +58,10 @@ const Container = styled.nav`
 `;
 
 const Wrapper = styled.div`
-  @media (max-width: 767px) {
+  @media ${({ theme }) => theme.device.max.mobile} {
     justify-content: space-between;
   }
+
   width: 100%;
   height: 60px;
   max-width: 975px;
@@ -87,7 +88,7 @@ const LogoWrap = styled.div`
 `;
 
 const SearchBarWrap = styled.div`
-  @media (max-width: 767px) {
+  @media ${({ theme }) => theme.device.max.mobile} {
     display: none;
   }
 
@@ -104,7 +105,7 @@ const SearchBarWrap = styled.div`
 `;
 
 const IConWrap = styled.div`
-  @media (max-width: 767px) {
+  @media ${({ theme }) => theme.device.max.mobile} {
     width: 50%;
   }
   width: 33.3%;
