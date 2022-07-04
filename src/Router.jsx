@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from './context';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
-const Router = ({ isLoggedIn }) => {
+const Router = () => {
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <Routes>
       <Route

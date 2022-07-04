@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
+import { AuthContext } from '../context';
 import { isValidRegExp } from '../common/regexp';
 
 const USER_EMAIL = 'tjddufgk@gmail.com';
@@ -10,6 +11,8 @@ const USER_PASSWORD = 'Wanted123!';
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
+
+  const { handleLogIn } = useContext(AuthContext);
 
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
@@ -46,8 +49,7 @@ const Login = () => {
     if (password !== USER_PASSWORD)
       return alert('비밀번호를 다시 확인해주세요');
 
-    localStorage.setItem('user', JSON.stringify({ email, password }));
-    window.location.reload();
+    handleLogIn(email, password);
   };
 
   return (

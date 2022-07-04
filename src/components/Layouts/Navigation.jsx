@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
+import { AuthContext } from '../../context';
 import { AiOutlineHeart, AiOutlinePlusSquare } from 'react-icons/ai';
 import { FiSend } from 'react-icons/fi';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 
 const Navigation = () => {
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    window.location.reload();
-  };
+  const { handleLogOut } = useContext(AuthContext);
 
   return (
     <Container>
@@ -33,7 +31,7 @@ const Navigation = () => {
           <ICon>
             <AiOutlineHeart size={22} />
           </ICon>
-          <ICon onClick={handleLogout}>
+          <ICon onClick={handleLogOut}>
             <RiLogoutBoxRLine size={22} />
           </ICon>
         </IConWrap>

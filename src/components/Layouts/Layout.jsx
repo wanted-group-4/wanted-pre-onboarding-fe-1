@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Navigation from './Navigation';
 
-const Layout = ({ children, isLoggedIn }) => {
+import { AuthContext } from '../../context';
+
+const Layout = ({ children }) => {
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <>
       {isLoggedIn && <Navigation />}
