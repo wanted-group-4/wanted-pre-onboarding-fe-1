@@ -14,8 +14,8 @@ const Login = () => {
 
   const { handleLogIn } = useContext(AuthContext);
 
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [isValidEmail, setIsValidEmail] = useState(null);
+  const [isValidPassword, setIsValidPassword] = useState(null);
 
   const onChange = (e) => {
     const {
@@ -72,7 +72,10 @@ const Login = () => {
           <Logo>
             <img src={logo} alt="로고" />
           </Logo>
-          <Form isValidEmail={isValidEmail} isValidPassword={isValidPassword}>
+          <Form
+            isValidEmail={isValidEmail === null ? true : isValidEmail}
+            isValidPassword={isValidPassword === null ? true : isValidPassword}
+          >
             <label>
               <input
                 id="email"
